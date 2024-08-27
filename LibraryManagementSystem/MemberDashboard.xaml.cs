@@ -23,5 +23,22 @@ namespace LibraryManagementSystem
         {
             InitializeComponent();
         }
+
+        private void BorrowBookButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ReturnBookButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

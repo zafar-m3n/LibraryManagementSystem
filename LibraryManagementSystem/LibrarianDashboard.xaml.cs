@@ -1,27 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LibraryManagementSystem
 {
-    /// <summary>
-    /// Interaction logic for LibrarianDashboard.xaml
-    /// </summary>
     public partial class LibrarianDashboard : Window
     {
+        // Connection string to your SQL Server database
+        private string connectionString = "Data Source=ZAFARULLAH-NAUS\\SQLEXPRESS;Initial Catalog=LibraryManagementSystem;Integrated Security=True;";
+
         public LibrarianDashboard()
         {
             InitializeComponent();
+        }
+
+        private void ViewMembersButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewMembersWindow viewMembersWindow = new ViewMembersWindow();
+            viewMembersWindow.Show();
+            this.Close();
+        }
+
+        // Logout Button Click Event
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void ManageBooksButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManageMembersButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TrackIssuedBooksButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
