@@ -34,7 +34,9 @@ namespace LibraryManagementSystem
 
         private void ManageBooksButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ManageBooksWindow manageBooksWindow = new ManageBooksWindow();
+            manageBooksWindow.Show();
+            this.Close();
         }
 
         private void ManageMembersButton_Click(object sender, RoutedEventArgs e)
