@@ -41,7 +41,9 @@ namespace LibraryManagementSystem
 
         private void ManageMembersButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ManageMembersWindow manageMembersWindow = new ManageMembersWindow();
+            manageMembersWindow.Show();
+            this.Close();
         }
 
         private void TrackIssuedBooksButton_Click(object sender, RoutedEventArgs e)

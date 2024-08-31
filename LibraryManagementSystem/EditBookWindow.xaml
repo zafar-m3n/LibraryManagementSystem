@@ -1,7 +1,7 @@
 ﻿<Window x:Class="LibraryManagementSystem.EditBookWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Edit Book" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Edit Book" Height="400" Width="400" WindowStartupLocation="CenterScreen">
     <Grid Background="#f0f0f0">
         <StackPanel Margin="20">
             <Label Content="Title:"/>

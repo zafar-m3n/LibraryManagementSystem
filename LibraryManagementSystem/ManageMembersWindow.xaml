@@ -1,7 +1,7 @@
-﻿<Window x:Class="LibraryManagementSystem.ManageBooksWindow"
+﻿<Window x:Class="LibraryManagementSystem.ManageMembersWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Manage Books" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Manage Members" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#f0f0f0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,7 +16,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Manage Books" 
+            <TextBlock Text="Manage Members" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Left" 
                        Margin="20,0,0,0" 
@@ -24,21 +24,21 @@
                        FontSize="20" 
                        FontWeight="Bold"/>
 
-            <Button Content="Add Book" 
+            <Button Content="Add Member" 
                     HorizontalAlignment="Right" 
                     VerticalAlignment="Center" 
                     Margin="0,0,20,0" 
                     Width="100" 
                     Height="30"
-                    Click="AddBookButton_Click"
+                    Click="AddMemberButton_Click"
                     Background="White"
                     Foreground="#007ACC" 
                     FontWeight="Bold"
                     Grid.Column="1"/>
         </Grid>
 
-        <!-- DataGrid for Books -->
-        <DataGrid x:Name="BooksDataGrid" 
+        <!-- DataGrid for Members -->
+        <DataGrid x:Name="MembersDataGrid" 
                   AutoGenerateColumns="False"
                   Grid.Row="1"
                   Margin="20" 
@@ -47,10 +47,9 @@
                   Height="300"
                   IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="200"/>
-                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="150"/>
-                <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="150"/>
-                <DataGridTextColumn Header="Year" Binding="{Binding YearPublished}" Width="100"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
+                <DataGridTextColumn Header="Number of Borrowed Books" Binding="{Binding NumberOfBorrowedBooks}" Width="150"/>
                 <DataGridTemplateColumn Header="Actions" Width="150">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -58,17 +57,17 @@
                                 <Button Content="Edit" 
                                         Width="60" 
                                         Margin="5,0" 
-                                        Click="EditBookButton_Click" 
+                                        Click="EditMemberButton_Click" 
                                         Background="#007ACC" 
                                         Foreground="White" 
-                                        Tag="{Binding BookID}"/>
+                                        Tag="{Binding UserID}"/>
                                 <Button Content="Delete" 
                                         Width="60" 
                                         Margin="5,0" 
-                                        Click="DeleteBookButton_Click" 
+                                        Click="DeleteMemberButton_Click" 
                                         Background="Red" 
                                         Foreground="White" 
-                                        Tag="{Binding BookID}"/>
+                                        Tag="{Binding UserID}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
