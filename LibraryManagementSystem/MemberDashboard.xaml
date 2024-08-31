@@ -41,63 +41,26 @@
         </Grid>
 
         <!-- Main Content Section -->
-        <Grid Grid.Row="1" Margin="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <!-- View Available Books Button -->
+            <Button Content="View Available Books" 
+                    Width="200" 
+                    Height="40" 
+                    Margin="0,10" 
+                    FontSize="16" 
+                    Background="#007ACC" 
+                    Foreground="White"
+                    Click="ViewAvailableBooksButton_Click"/>
 
-            <!-- Available Books Section -->
-            <GroupBox Header="Available Books" FontSize="16" Margin="10" Foreground="#333" Grid.Column="0">
-                <StackPanel>
-                    <ListView x:Name="AvailableBooksListView" Height="200" Margin="0,10,0,0">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="150"/>
-                                <GridViewColumn Header="Author" DisplayMemberBinding="{Binding Author}" Width="100"/>
-                                <GridViewColumn Header="Publisher" DisplayMemberBinding="{Binding Publisher}" Width="100"/>
-                                <GridViewColumn Header="Year" DisplayMemberBinding="{Binding YearPublished}" Width="50"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                    <Button Content="Borrow Book" 
-                            Width="120" 
-                            Height="30" 
-                            HorizontalAlignment="Center" 
-                            Margin="0,10,0,0"
-                            Click="BorrowBookButton_Click"
-                            Background="#007ACC"
-                            Foreground="White"
-                            FontWeight="Bold"/>
-                </StackPanel>
-            </GroupBox>
-
-            <!-- Borrowed Books Section -->
-            <GroupBox Header="Borrowed Books" FontSize="16" Margin="10" Foreground="#333" Grid.Column="1">
-                <StackPanel>
-                    <ListView x:Name="BorrowedBooksListView" Height="200" Margin="0,10,0,0">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="150"/>
-                                <GridViewColumn Header="Borrow Date" DisplayMemberBinding="{Binding BorrowDate}" Width="100"/>
-                                <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate}" Width="100"/>
-                                <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                    <Button Content="Return Book" 
-                            Width="120" 
-                            Height="30" 
-                            HorizontalAlignment="Center" 
-                            Margin="0,10,0,0"
-                            Click="ReturnBookButton_Click"
-                            Background="#007ACC"
-                            Foreground="White"
-                            FontWeight="Bold"/>
-                </StackPanel>
-            </GroupBox>
-        </Grid>
+            <!-- View Borrowed Books Button -->
+            <Button Content="View Borrowed Books" 
+                    Width="200" 
+                    Height="40" 
+                    Margin="0,10" 
+                    FontSize="16" 
+                    Background="#007ACC" 
+                    Foreground="White"
+                    Click="ViewBorrowedBooksButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

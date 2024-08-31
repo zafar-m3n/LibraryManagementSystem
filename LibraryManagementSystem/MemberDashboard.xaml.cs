@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LibraryManagementSystem
 {
@@ -19,26 +8,36 @@ namespace LibraryManagementSystem
     /// </summary>
     public partial class MemberDashboard : Window
     {
-        public MemberDashboard()
+        private int memberId; // Member ID to keep track of the logged-in member
+
+        // Constructor that accepts a memberId
+        public MemberDashboard(int memberId)
         {
             InitializeComponent();
+            this.memberId = memberId; // Store the member ID for use in this class
         }
 
-        private void BorrowBookButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ReturnBookButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        // Logout Button Click Event
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        // View Available Books Button Click Event
+        private void ViewAvailableBooksButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Pass the memberId to the ViewAvailableBooksWindow
+            ViewAvailableBooksWindow viewAvailableBooksWindow = new ViewAvailableBooksWindow(memberId);
+            viewAvailableBooksWindow.Show();
+            this.Close();
+        }
+
+        // View Borrowed Books Button Click Event
+        private void ViewBorrowedBooksButton_Click(object sender, RoutedEventArgs e)
+        {
+            // You can implement the logic to view borrowed books here
         }
     }
 }

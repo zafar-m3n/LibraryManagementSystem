@@ -32,7 +32,7 @@ namespace LibraryManagementSystem
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT Role FROM Users WHERE Email = @Email AND Password = @Password";
+                    string query = "SELECT Role, UserID FROM Users WHERE Email = @Email AND Password = @Password";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@Password", password);
@@ -43,6 +43,7 @@ namespace LibraryManagementSystem
                     {
                         reader.Read();
                         string role = reader["Role"].ToString();
+                        int userId = Convert.ToInt32(reader["UserID"]); // Retrieve UserID
 
                         if (role == "Librarian")
                         {
@@ -53,8 +54,17 @@ namespace LibraryManagementSystem
                         }
                         else if (role == "Member")
                         {
-                            // Redirect to Member Dashboard
-                            MemberDashboard memberDashboard = new MemberDashboard();
+                            reader.Close(); // Close the reader before executing another command
+
+                            // Retrieve the MemberID for the logged-in user
+                            string memberQuery = "SELECT MemberID FROM Members WHERE UserID = @UserID";
+                            SqlCommand memberCommand = new SqlCommand(memberQuery, connection);
+                            memberCommand.Parameters.AddWithValue("@UserID", userId);
+
+                            int memberId = Convert.ToInt32(memberCommand.ExecuteScalar());
+
+                            // Redirect to Member Dashboard with memberId
+                            MemberDashboard memberDashboard = new MemberDashboard(memberId);
                             memberDashboard.Show();
                             this.Close();
                         }
