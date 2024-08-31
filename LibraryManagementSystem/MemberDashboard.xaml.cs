@@ -37,7 +37,11 @@ namespace LibraryManagementSystem
         // View Borrowed Books Button Click Event
         private void ViewBorrowedBooksButton_Click(object sender, RoutedEventArgs e)
         {
-            // You can implement the logic to view borrowed books here
+            // Open the ViewBorrowedBooksWindow and pass the memberId
+            ViewBorrowedBooksWindow viewBorrowedBooksWindow = new ViewBorrowedBooksWindow(memberId);
+            viewBorrowedBooksWindow.Show();
+            this.Close();
         }
+
     }
 }
