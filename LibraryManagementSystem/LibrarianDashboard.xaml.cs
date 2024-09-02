@@ -48,7 +48,10 @@ namespace LibraryManagementSystem
 
         private void TrackIssuedBooksButton_Click(object sender, RoutedEventArgs e)
         {
-
+            // Open the TrackIssuedBooksWindow
+            TrackIssuedBooksWindow trackIssuedBooksWindow = new TrackIssuedBooksWindow();
+            trackIssuedBooksWindow.Show();
+            this.Close();
         }
     }
 }
